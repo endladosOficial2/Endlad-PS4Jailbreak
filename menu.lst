@@ -1,0 +1,20 @@
+# menu.lst produced by grub4dosconfig-v1.9.3
+color white/black black/white white/black white/black
+#splashimage=/splashes.xpm
+timeout 99
+default 0
+
+
+title PS4 SafeMode
+  find --set-root --ignore-floppies --ignore-cd  /safemode.elf
+  chainloader /safemode.elf
+
+
+title boot:mini-syscore.elf
+  find --set-root --ignore-floppies --ignore-cd  /safemode.elf
+  chainloader /mini-syscore.elf
+
+title Puppy Linux 0.4
+  find --set-root --ignore-floppies --ignore-cd  /boot
+  kernel /cmd/boot root=/dev/ram0 ramdisk_size=44000
+   initrd /cmd/uefi-boot.gz
